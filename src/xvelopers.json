@@ -152,7 +152,7 @@
   {
     "id": "duartex",
     "name": "Omar Duartex",
-    "description": "Organizador del Hackathon Hack-IT en 2014. Ingeniero Industrial de profesión, decidió darle un giro a su rumbo profesional y aprendió solo Javascript, luego consiguió un trabajo remoto en a href='http://www.workinestonia.com/'>Estonia</a> y actualmente vivo en dicho país que anteriormente formó parte de la unión soviética.",
+    "description": "Organizador del Hackathon Hack-IT en 2014. Ingeniero Industrial de profesión, decidió darle un giro a su rumbo profesional y aprendió solo Javascript, luego consiguió un trabajo remoto en <a href='http://www.workinestonia.com/'>Estonia</a> y actualmente vivo en dicho país que anteriormente formó parte de la unión soviética.",
     "image": "./assets/img/xvelopers/omarduartex.jpg",
     "links": [
       {"name":"", "icon":"uk-icon-github", "url":"https://github.com/omarduarte"}
