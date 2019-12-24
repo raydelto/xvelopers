@@ -5,3 +5,4 @@ build/
 src/react_components/js/
 bower_components/
 .idea
+package-lock.json
