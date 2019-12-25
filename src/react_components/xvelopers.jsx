@@ -30,7 +30,8 @@ var XvelopersList = React.createClass({
           }
           var shown_part = xveloper.description.substr(0,stringLength);
           var hidden_part = "<span class='uk-hidden' id='"+xveloper.id+"-more'>" + xveloper.description.substr(stringLength) + "</span>";
-          var showm_more_btn = " <small> <a href='#' data-uk-toggle=\"{target:'#"+xveloper.id+"-more'}\">mostrar más</a> </small>";
+          var showMoreFunction = "function(){var lnk = document.getElementById(\"sm-"+xveloper.id+"\"); lnk.innerHTML = lnk.innerHTML == \"mostrar más\"? \"mostrar menos\":\"mostrar más\"; }";
+          var showm_more_btn = " <small> <a id='sm-"+xveloper.id+"' onclick='("+showMoreFunction+")()' href='#' data-uk-toggle=\"{target:'#"+xveloper.id+"-more'}\">mostrar más</a> </small>";
           xveloper.description = shown_part+hidden_part+showm_more_btn;
         }
         return {__html: xveloper.description};
