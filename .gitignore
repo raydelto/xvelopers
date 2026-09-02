@@ -1,8 +1,8 @@
-**~
 node_modules/
-.DS_Store
+dist/
 build/
-src/react_components/js/
-bower_components/
+.DS_Store
+*.local
 .idea
-package-lock.json
+.vscode
+*.log

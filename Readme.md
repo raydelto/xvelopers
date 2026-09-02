@@ -1,47 +1,87 @@
-# xvelopers
+# Xvelopers
 
-[xvelopers](http://xvelopers.org) is a project made to support the Dominican software development community; it showcases developers who support, contribute and influence the community.
+[xvelopers.org](https://www.xvelopers.org) es un proyecto creado para apoyar y celebrar a la comunidad dominicana de desarrollo de software; destaca a los desarrolladores que apoyan, contribuyen e influyen activamente en dicha comunidad.
 
-Like other community projects, this one holds an implicit invitation to hop in, look around, ask questions, and contribute. Other community projects include [emplea.do](http://www.emplea.do) ([repo](https://github.com/developersdo/empleo-dot-net)) and [meta.do](http://meta.do) [repo](https://github.com/xpostudio4/metacommunity).
+Al igual que otros proyectos de la comunidad, este mantiene una invitación abierta a participar, hacer preguntas y contribuir. Otros proyectos comunitarios incluyen [emplea.do](https://emplea.do) ([repo](https://github.com/developersdo/empleo-dot-net)), [meta.do](https://meta.do) y [streamelopers.org](https://streamelopers.org).
 
-# Setup and installation
+---
 
-The installation can be divided in two phases: Environment Setup and Project Setup. The Environment Setup requires administration privileges on the computer, as it installs software that can be used throughout the system. The Project Setup doesn't, as it only deals with the project at hand.
+## Tecnologías
 
-## Environment Setup
-These steps can be performed from any directory in your computer, as they have a global effect in the system.
+- **React 18** (Modern functional components & hooks)
+- **Vite** (Build tool y servidor de desarrollo ultra rápido)
+- **Tailwind CSS** (Estilos modernos, responsivos y modo oscuro elegante)
+- **Lucide Icons** (Iconografía limpia y accesible para enlaces comunitarios y redes sociales)
 
-### Install nodejs
-[Here](https://goo.gl/YcOsZP) you can check how to do so. There's an issue when installing Node in Ubuntu, check it out how to solve it [here](https://goo.gl/uSfZXo)
+---
 
-### Update npm
-	npm install -g npm
+## Requisitos Previos
 
-### Install bower and grunt-cli
-	npm install -g bower
-	npm install -g grunt-cli
+- [Node.js](https://nodejs.org/) (versión 18 o superior)
+- npm (o pnpm / yarn)
 
-## Project Setup
+---
 
-These steps only affect the project. You need to execute them, then, from the project's root directory.
+## Instalación y Desarrollo
 
-### Install the backend dependencies
-	npm install
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/raydelto/xvelopers.git
+   cd xvelopers
+   ```
 
-### Install the frontend dependencies
-	bower install
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-### Install uikit's dependencies
-*this step also generates uikit's html, css and javascript output*
+3. **Iniciar el servidor de desarrollo local:**
+   ```bash
+   npm run dev
+   ```
+   Abre [http://localhost:5173](http://localhost:5173) en tu navegador para ver la aplicación.
 
-	cd bower_components/uikit && npm install && cd ../..
+4. **Compilar para producción:**
+   ```bash
+   npm run build
+   ```
+   Los archivos optimizados y minificados se generarán en la carpeta `dist/`.
 
-### Build the project
-	grunt build
+5. **Previsualizar la compilación de producción:**
+   ```bash
+   npm run preview
+   ```
 
-At this point you should have a working project; all the final files for the website should be located in the `build` directory.
+6. **Desplegar a producción (con llaves SSH configuradas):**
+   ```bash
+   npm run deploy
+   ```
 
-## Running
-	npm start
+---
 
-Executes the "node server.js"  command and serves the content of the `build` directory via the port 8000. You will then be able to visit the site at http://localhost:8000
+## ¿Cómo agregar o actualizar a un Xveloper?
+
+La lista de desarrolladores se encuentra en [`public/xvelopers.json`](public/xvelopers.json). Para agregar a un nuevo desarrollador o actualizar información existente:
+
+1. Agrega la foto del desarrollador en `public/assets/img/xvelopers/nombre.jpg`.
+2. Edita `public/xvelopers.json` con el nuevo registro:
+   ```json
+   {
+     "id": "tunombrex",
+     "name": "Tu NombreX",
+     "description": "Tu descripción y aportes a la comunidad dominicana.",
+     "image": "./assets/img/xvelopers/tunombrex.jpg",
+     "links": [
+       { "name": "GitHub", "icon": "github", "url": "https://github.com/tuusuario" },
+       { "name": "Twitter", "icon": "twitter", "url": "https://twitter.com/tuusuario" }
+     ]
+   }
+   ```
+3. Envía un Pull Request al repositorio.
+
+---
+
+## Créditos
+
+- **Proyecto original:** [Enmanuel Toribio](https://torib.io/)
+- **Mantenimiento actual:** [Raydelto Hernández](https://www.raydelto.org/)
