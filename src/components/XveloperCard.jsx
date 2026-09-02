@@ -40,12 +40,10 @@ function getIconComponent(iconStr, url) {
 // Convert HTML description to safely rendered links with modern styling
 function formatDescription(rawHtml) {
   if (!rawHtml) return '';
-  // Ensure links open in new tab with security attributes and tailwind classes
   return rawHtml
     .replace(/<a\s+href=['"]([^'"]+)['"](?:\s+[^>]*)?>/gi, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 font-medium underline underline-offset-2 transition-colors">');
 }
 
-// Strip HTML tags for clean length calculation
 function stripHtml(html) {
   return html.replace(/<[^>]*>?/gm, '');
 }
@@ -66,22 +64,21 @@ export default function XveloperCard({ xveloper }) {
   return (
     <div 
       id={xveloper.id}
-      className="group relative bg-slate-900/60 border border-slate-800/80 hover:border-indigo-500/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-950/20 hover:-translate-y-1 flex flex-col justify-between backdrop-blur-sm"
+      className="group relative bg-slate-900/60 border border-slate-800/80 hover:border-indigo-500/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-950/20 hover:-translate-y-1 flex flex-col justify-between backdrop-blur-sm"
     >
       {/* Glow on hover */}
       <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
       <div>
-        {/* Top: Avatar & Social Links */}
+        {/* Top: Avatar & Name */}
         <div className="flex flex-col items-center text-center">
           <div className="relative mb-4">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-indigo-500/30 via-slate-800 to-blue-500/30 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300 shadow-lg shadow-black/40">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-indigo-500/30 via-slate-800 to-blue-500/30 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300 shadow-lg shadow-black/40">
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center">
                 {imageSrc && !imageError ? (
                   <img
                     src={imageSrc}
                     alt={xveloper.name}
-                    loading="lazy"
                     onError={() => setImageError(true)}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -110,7 +107,7 @@ export default function XveloperCard({ xveloper }) {
                 />
                 <button
                   onClick={() => setExpanded(true)}
-                  className="inline-flex items-center gap-1 ml-1 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors focus:outline-none"
+                  className="inline-flex items-center gap-1 ml-1 px-2 py-1 -mx-1 rounded-md text-xs font-semibold text-indigo-400 hover:text-indigo-300 hover:bg-indigo-500/10 transition-colors focus:outline-none"
                 >
                   <span>mostrar más</span>
                   <ChevronDown className="w-3.5 h-3.5" />
@@ -126,7 +123,7 @@ export default function XveloperCard({ xveloper }) {
                 {isLong && (
                   <button
                     onClick={() => setExpanded(false)}
-                    className="inline-flex items-center gap-1 ml-1 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors focus:outline-none"
+                    className="inline-flex items-center gap-1 ml-1 px-2 py-1 -mx-1 rounded-md text-xs font-semibold text-indigo-400 hover:text-indigo-300 hover:bg-indigo-500/10 transition-colors focus:outline-none"
                   >
                     <span>mostrar menos</span>
                     <ChevronUp className="w-3.5 h-3.5" />
@@ -138,7 +135,7 @@ export default function XveloperCard({ xveloper }) {
         </div>
       </div>
 
-      {/* Social / Profile Links */}
+      {/* Social / Profile Links with minimum 40px touch targets */}
       {xveloper.links && xveloper.links.length > 0 && (
         <div className="pt-4 mt-2 border-t border-slate-800/80 flex items-center justify-center gap-2 flex-wrap">
           {xveloper.links.map((link, idx) => {
@@ -151,7 +148,7 @@ export default function XveloperCard({ xveloper }) {
                 rel="noopener noreferrer"
                 title={label}
                 aria-label={`${label} de ${xveloper.name}`}
-                className={`p-2 rounded-xl bg-slate-800/50 text-slate-400 border border-slate-700/50 transition-all duration-200 ${color}`}
+                className={`p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl bg-slate-800/50 text-slate-400 border border-slate-700/50 transition-all duration-200 active:scale-95 ${color}`}
               >
                 <Component className="w-4 h-4" />
               </a>
